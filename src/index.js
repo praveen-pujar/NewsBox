@@ -7,19 +7,32 @@ var per_page = 30;
 var total_pages;
 getPost();
 
-$(window).scroll(function(){
+// $(window).scroll(function(){
 
-    if( $(document).height() - $(this).height() == $(this).scrollTop() )
-    {
-        if(page <= total_pages){
+//     if( $(document).height() - $(this).height() == $(this).scrollTop() )
+//     {
+//         if(page <= total_pages){
             
+//             page = page + 1;
+//             showLoading();
+//         }
+//         else {
+//             alert("You have read all the articles!");
+//         }
+     
+//     }
+// })
+
+window.addEventListener('scroll', () => {
+    const {scrollHeight, scrollTop, clientHeight} = document.documentElement;
+    if(scrollTop + clientHeight > scrollHeight - 10){
+        if(page <= total_pages){
             page = page + 1;
             showLoading();
         }
-        else {
-            alert("You have read all the articles!");
+        else{
+            alert("Sorry, We are finished all the articles!");
         }
-     
     }
 })
     
