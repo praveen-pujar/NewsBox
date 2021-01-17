@@ -8,21 +8,27 @@ var total_pages;
 getPost();
 
 // Scrolling event 
-window.addEventListener('scroll', () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
+document.onreadystatechange = () => {
+if(document.readyState === 'complete'){
 
-    if(Math.ceil(scrolled) === scrollable){
-        if(page <= total_pages){
-            page = page + 1;
-            showLoading();
-        }
-        else{
-            alert("Sorry, We are finished all the articles!");
-        }
-    }
-})
+    window.addEventListener('scroll', () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = window.scrollY;
     
+        if(Math.ceil(scrolled) === scrollable){
+            if(page <= total_pages){
+                page = page + 1;
+                showLoading();
+            }
+            else{
+                alert("Sorry, We are finished all the articles!");
+            }
+        }
+    })
+     
+}
+}   
+
 // Balls animation function
 function showLoading() {
 	loading.classList.add('show');
