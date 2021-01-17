@@ -1,31 +1,14 @@
 const container = document.getElementById("container");
 const loading = document.querySelector('.loading');
 
-
+// Global variables
 var page = 1;
 var per_page = 30;
 var total_pages;
 getPost();
 
-// $(window).scroll(function(){
-
-//     if( $(document).height() - $(this).height() == $(this).scrollTop() )
-//     {
-//         if(page <= total_pages){
-            
-//             page = page + 1;
-//             showLoading();
-//         }
-//         else {
-//             alert("You have read all the articles!");
-//         }
-     
-//     }
-// })
-
+// Scrolling event 
 window.addEventListener('scroll', () => {
-    // const {scrollHeight, scrollTop, clientHeight} = document.documentElement;
-
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = window.scrollY;
 
@@ -40,6 +23,7 @@ window.addEventListener('scroll', () => {
     }
 })
     
+// Balls animation function
 function showLoading() {
 	loading.classList.add('show');
     
@@ -47,7 +31,7 @@ function showLoading() {
 	setTimeout(getPost, 1000)
 }
 
-
+// Asynchronous function to get the data
 async function getPost() {
 
     var url = "https://www.techinasia.com/wp-json/techinasia/2.0/posts?page="+page+"&per_page=30";
@@ -83,13 +67,13 @@ async function getPost() {
             
         </div>
         `;
-        // <span class="postButton">
-        // </span>
+       
     container.appendChild(postElement);
 
+    // Show more functionality
         var flag = false;
         $(".readmore-btn").click(function(){
-            // flag = true;
+            
             if(flag === true){
                 flag = false;
                 $(this).parent().removeClass("showContent"); 
