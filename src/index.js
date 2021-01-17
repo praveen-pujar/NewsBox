@@ -15,7 +15,7 @@ if(document.readyState === 'complete'){
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
         const scrolled = window.scrollY;
     
-        if(Math.ceil(scrolled) === scrollable){
+        if(Math.ceil(scrolled) >= scrollable){
             if(page <= total_pages){
                 page = page + 1;
                 showLoading();
