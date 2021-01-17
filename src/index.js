@@ -24,8 +24,12 @@ getPost();
 // })
 
 window.addEventListener('scroll', () => {
-    const {scrollHeight, scrollTop, clientHeight} = document.documentElement;
-    if(scrollTop + clientHeight > scrollHeight - 10){
+    // const {scrollHeight, scrollTop, clientHeight} = document.documentElement;
+
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+
+    if(Math.ceil(scrolled) === scrollable){
         if(page <= total_pages){
             page = page + 1;
             showLoading();
