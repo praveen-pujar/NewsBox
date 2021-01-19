@@ -153,6 +153,22 @@ main{
 
 
 
+
+.onPageLoad {
+  opacity: 0;
+  display: flex;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease-in;
+}
+
+.onPageLoad.show {
+  opacity: 1;
+}
+
+
 /* Loading animation */
 
 .loading {
@@ -223,3 +239,34 @@ main{
 }
 
 
+
+
+.offline-post{
+  background-color: #2196f3;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 2vw;
+  text-align: center;
+  /* vertical-align: middle; */
+  margin: 100px;
+  /* padding: 100px; */
+  top: 100px;
+}
+
+.offline-post h3{
+  width: revert;
+  
+  /* width: 90vw; */
+  bottom: 100px;
+  left: 16px;
+  padding: 15px;
+  margin: 0 2vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.offline-post img{
+  height: 40vw;
+  width: 40vw;
+}

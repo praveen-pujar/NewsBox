@@ -1,0 +1,17 @@
+{
+    "name": "News Box App",
+    "short_name": "NewsBox",
+    "display": "standalone",
+    "scope":"/",
+    "start_url" : "https://news-box-app.herokuapp.com/",
+    "description":"Latest news web app",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "any",
+    "icons": [
+      {
+        "src": "/images/icons/icon-72x72.png",
+        "type": "image/png", "sizes": "72x72"
+      }
+    ]
+  }
