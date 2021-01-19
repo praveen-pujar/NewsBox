@@ -59,18 +59,21 @@ async function getPost() {
         }
         var postDate = format(post.date_gmt);
 
+
         postElement.innerHTML = `
-        <div class="post">
+        <div class="post ">
             
             <h3 class="title" >${post.title}</h3>
             <h4 class="postDate">${postDate}</h4>
             <img class="image" src="${post.featured_image.source}" alt="image" />
             <h4 class="author">Written by :${post.author.display_name}</h4>
             
-            <div class="desc">${post.content}</div>
+            <div id="more-1" class="desc">
+            ${post.content}
             
-            <button id="${post.id}"class="readmore-btn">Read More</button>
-            
+            </div>
+            <button class="readmore-btn">Read More</button>
+  
         </div>
         `;
        
@@ -78,23 +81,38 @@ async function getPost() {
 
     // Show more functionality
         var flag = false;
-        $(".readmore-btn").click(function(){
-            
-            if(flag === true){
-                flag = false;
-                $(this).parent().removeClass("showContent"); 
-                var replaceText = "Read More";
-                $(this).text(replaceText);
-            }
-            else{
-                flag = true;
-                $(this).parent().addClass("showContent");
-                var replaceText = "Read Less";
-                $(this).text(replaceText);
 
-            }
+// document.addEventListener( "DOMContentLoaded" ,() => {
+if ('querySelector' in document && 
+'addEventListener' in window) {
+var toggleButtons = document.querySelectorAll(".readmore-btn");
+
+
+toggleButtons.forEach(toggleButton => {
     
-            })
+    // add listener for each button
+    toggleButton.addEventListener('click', function () {
+
+        fullTextWrapper = this.parentElement.querySelector('.desc');
+        
+        // change attributes and text if full text is shown/hidden
+        if(flag === true){
+             flag = false;   
+            this.parentElement.classList.remove("showContent");
+            this.innerHTML = "Read More";
+            }
+        else{
+            flag = true;
+            this.parentElement.classList.add("showContent");
+            this.innerHTML = "Read Less" ;
+        }
+  
+    });
+    
+})
+}
+// })
+
     
 
     loading.classList.remove('show');
