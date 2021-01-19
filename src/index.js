@@ -1,11 +1,11 @@
 
-if(navigator.onLine){
+// if(navigator.onLine){
 
-    if (!navigator.serviceWorker.controller) {
-        navigator.serviceWorker.register("/serviceWorker.js").then(function(reg) {
-            console.log("Service worker has been registered for scope: " + reg.scope);
-        });
-    }
+    window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("service-worker.js");
+        }
+      });
 
     (function(){
         const container = document.getElementById("container");
@@ -151,20 +151,20 @@ if(navigator.onLine){
         };
         
     }())
-}
-else{
-    const postElement = document.createElement("div");
-    postElement.classList.add("offline");
+// }
+// else{
+//     const postElement = document.createElement("div");
+//     postElement.classList.add("offline");
 
-    postElement.innerHTML = `
-    <div class="offline-post">
-        <h3 >Please turn on your internet to get the latest news!</h3>
-        <img src="src/news.jpg" alt="image" />
-    </div>
-    `;
+//     postElement.innerHTML = `
+//     <div class="offline-post">
+//         <h3 >Please turn on your internet to get the latest news!</h3>
+//         <img src="src/news.jpg" alt="image" />
+//     </div>
+//     `;
    
-container.appendChild(postElement);
-}
+// container.appendChild(postElement);
+// }
 
 
 
