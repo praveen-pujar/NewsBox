@@ -1,4 +1,4 @@
-const newsapp = "dev-news-app-v1"
+
 const assets = [
     "/",
     "/index.php",
