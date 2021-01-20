@@ -1,11 +1,7 @@
 
-// if(navigator.onLine){
-
     window.addEventListener("load", () => {
         if ("serviceWorker" in navigator) {
             console.log("Service worker is present!");
-        
-        //   navigator.serviceWorker.register("../serviceWorker.js");
         navigator.serviceWorker.register('../serviceWorker.js').then(function(registration) {
             console.log('Service worker registration succeeded:', registration);
           }, /*catch*/ function(error) {
@@ -21,24 +17,6 @@
         const loading = document.querySelector('.loading');
         const onPageLoad = document.querySelector('.onPageLoad');
         
-
-        // Showing the loading screen while data gets loaded
-
-        // document.onload = () =>{
-        //     showLoadingPage();
-        // }
-
-        // // Loading page function
-        // function showLoadingPage(){
-        //     onPageLoad.classList.add('show');
-        //     loading.classList.add('show');
-
-        //     // take time to laod
-        //     setTimeout(getPost(), 5000);
-        // }
-
-
-
 
         // Global variables
         var page = 1;
@@ -165,52 +143,5 @@
         };
         
     }())
-// }
-// else{
-//     const postElement = document.createElement("div");
-//     postElement.classList.add("offline");
-
-//     postElement.innerHTML = `
-//     <div class="offline-post">
-//         <h3 >Please turn on your internet to get the latest news!</h3>
-//         <img src="src/news.jpg" alt="image" />
-//     </div>
-//     `;
-   
-// container.appendChild(postElement);
-// }
 
 
-
-// Run after the HTML document has finished loading
-document.addEventListener("DOMContentLoaded", function() {
-
-    var frames = document.querySelectorAll('frame');
-    var iframes = document.querySelectorAll('iframe');
-
-    frames.forEach( frame  => {
-        frame.setAttribute("title", "Frame");
-    })
-
-    
-    iframes.forEach( frame  => {
-        frame.setAttribute("title", "Frame");
-    })
-
-
-
-//     // Get our lazy-loaded images
-//     var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-  
-//     // Do this only if IntersectionObserver is supported
-//     if ("IntersectionObserver" in window) {
-//         let lazyImageObserver = new IntersectionObserver(function (entries, observer){
-
-//         });
-
-//     lazyImages.forEach(function(lazyImage){
-//         lazyImageObserver.observe(lazyImage);
-//     });
-        
-//     }
-  });
