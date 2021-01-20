@@ -3,7 +3,16 @@
 
     window.addEventListener("load", () => {
         if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("serviceWorker.js");
+            console.log("Service worker is present!");
+        
+        //   navigator.serviceWorker.register("../serviceWorker.js");
+        navigator.serviceWorker.register('../serviceWorker.js').then(function(registration) {
+            console.log('Service worker registration succeeded:', registration);
+          }, /*catch*/ function(error) {
+            console.log('Service worker registration failed:', error);
+          });
+        } else {
+          console.log('Service workers are not supported.');
         }
       });
 
@@ -89,8 +98,13 @@
                     });
                 }
                 var postDate = format(post.date_gmt);
-        
-        
+                
+                try {
+                    post.content
+                } catch (error) {
+                    console.log("Cant fetch the content!");
+                }
+                finally{
                 postElement.innerHTML = `
                 <div class="post ">
                     
@@ -109,7 +123,7 @@
                 `;
                
             container.appendChild(postElement);
-        
+                }
             // Show more functionality
                 var flag = false;
         
@@ -168,4 +182,29 @@
 
 
 
+// Run after the HTML document has finished loading
+document.addEventListener("DOMContentLoaded", function() {
 
+    var lazyLoadImage = document.querySelectorAll('.lazy');
+
+    lazyLoadImage.forEach( image  => {
+        console.log("Lazy image ");
+    })
+
+
+
+//     // Get our lazy-loaded images
+//     var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+  
+//     // Do this only if IntersectionObserver is supported
+//     if ("IntersectionObserver" in window) {
+//         let lazyImageObserver = new IntersectionObserver(function (entries, observer){
+
+//         });
+
+//     lazyImages.forEach(function(lazyImage){
+//         lazyImageObserver.observe(lazyImage);
+//     });
+        
+//     }
+  });

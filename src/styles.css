@@ -270,3 +270,6 @@ main{
   height: 40vw;
   width: 40vw;
 }
+
+/* Lazy loading of images */
+/* .lazy { display: none; } */
