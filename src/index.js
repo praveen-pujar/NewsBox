@@ -185,10 +185,16 @@
 // Run after the HTML document has finished loading
 document.addEventListener("DOMContentLoaded", function() {
 
-    var lazyLoadImage = document.querySelectorAll('.lazy');
+    var frames = document.querySelectorAll('frame');
+    var iframes = document.querySelectorAll('iframe');
 
-    lazyLoadImage.forEach( image  => {
-        console.log("Lazy image ");
+    frames.forEach( frame  => {
+        frame.setAttribute("title", "Frame");
+    })
+
+    
+    iframes.forEach( frame  => {
+        frame.setAttribute("title", "Frame");
     })
 
 
