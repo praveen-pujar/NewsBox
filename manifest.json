@@ -3,7 +3,7 @@
     "short_name": "NewsBox",
     "display": "standalone",
     "scope":"/",
-    "start_url" : "https://news-box-app.herokuapp.com",
+    "start_url" : "index.php",
     "description":"Latest news web app",
     "background_color": "#fdfdfd",
     "theme_color": "#db4938",
@@ -15,7 +15,8 @@
       },
       {
         "src": "/src/newspaperIcon.png",
-        "type": "image/png", "sizes": "512x512"
+        "type": "image/png", "sizes": "512x512",
+        "purpose": "any maskable"
       }
     ]
   }
